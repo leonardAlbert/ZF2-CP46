@@ -1,0 +1,21 @@
+<?php $this->headTitle("Novo Lançamento"); ?>
+
+<?php $this->form->setAttribute("action", $this->url("ponto", array(
+        "controller" => "lancamento", "action" => "inserir")));
+
+$this->form->prepare(); ?>
+
+<h1><span class="glyphicon glyphicon-user"></span>&nbsp 
+<?php echo $this->escapeHtml('Novo Lançamento'); ?></h1><br/>
+
+<div class="row">
+    <div class="col-md-6">
+        <?php echo $this->form()->openTag($this->form); ?>
+        <?php echo $this->formHidden($this->form->get('id')); ?>
+        <?php echo $this->formRow($this->form->get('funcionario')); ?>
+        <?php echo $this->formRow($this->form->get('data_hora')); ?>
+        <?php echo $this->formRow($this->form->get('tipo')); ?>
+        <?php echo $this->formSubmit($this->form->get('submit')); ?>
+        <?php echo $this->form()->closeTag(); ?>
+    </div>
+</div>

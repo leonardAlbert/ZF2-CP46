@@ -1,0 +1,33 @@
+<?php $this->headTitle('Lançamentos'); ?>
+
+<h1><span class="glyphicon glyphicon-user"></span>&nbsp <?php echo $this->escapeHtml('Lançamentos'); ?></h1>
+
+<a href="<?php echo $this->url("ponto", array(
+    "controller" => "lancamento", "action" => "inserir")); ?>" 
+        class="btn btn-success">Novo</a></br></br>
+        
+<table class="table table-striped">
+<tr>
+    <th>Id</th>
+    <th>Funcionário</th>
+    <th>Data/Hora</th>
+    <th>Tipo</th>
+    <th>Opções</th>
+</tr>
+<?php foreach ($this->dados as $value) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($value->__get("id")); ?></td>
+    <td><?php echo $this->escapeHtml($value->__get("Funcionario")); ?></td>
+    <td><?php echo $this->escapeHtml($value->__get("data_hora")); ?></td>
+    <td><?php echo $this->escapeHtml($value->__get("tipo")); ?></td>
+    <td><?php echo $this->escapeHtml($value->__get("status")); ?></td>
+    <td>
+        <a class="btn btn-primary" href="<?php echo $this->url(
+            'ponto', array("controller" => "lancamento", "action" => "editar", 
+                "id" => $value->__get("id")));?>">Editar</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<?php echo $this->paginationControl($this->dados ,'Sliding','paginator'); ?>

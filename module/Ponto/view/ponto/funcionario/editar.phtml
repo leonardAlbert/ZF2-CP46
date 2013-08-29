@@ -1,0 +1,27 @@
+<?php $this->headTitle("Editar Funcionário"); ?>
+
+<?php $this->form->setAttribute("action", $this->url("ponto", array(
+    "controller" => "funcionario", "action" => "editar")));
+
+$this->form->prepare(); ?>
+
+<h1><span class="glyphicon glyphicon-user"></span>&nbsp 
+<?php echo $this->escapeHtml('Editar Funcionário'); ?></h1><br/>
+
+<div class="row">
+    <div class="col-md-6">
+        <?php echo $this->form()->openTag($this->form); ?>
+        <?php echo $this->formHidden($this->form->get('id')); ?>
+        <?php echo $this->formRow($this->form->get('nome')); ?>
+        <?php echo $this->formRow($this->form->get('email')); ?>
+        <?php echo $this->formRow($this->form->get('usuario')); ?>
+        <?php echo $this->formRow($this->form->get('senha')); ?>
+        <?php echo $this->formRow($this->form->get('area')); ?>
+        <?php echo $this->formRow($this->form->get('departamento')); ?>
+        <?php echo $this->formRow($this->form->get('funcao')); ?>
+        <?php echo $this->formRow($this->form->get('permissao')); ?>
+        <?php echo $this->formRow($this->form->get('status')); ?><br/><br/>
+        <?php echo $this->formSubmit($this->form->get('submit')); ?>
+        <?php echo $this->form()->closeTag(); ?>
+    </div>
+</div>
